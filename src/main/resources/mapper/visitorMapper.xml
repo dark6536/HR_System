@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iotek.HRSystem.dao.VisitorDao">
+	
+	<insert id = "insertVisitor" parameterType="Visitor">
+		INSERT INTO 
+			visitors(name,password,phone,createTime,resumes_id)
+		VALUES
+			(#{name},#{password},#{phone},#{createTime},#{resume.id})
+	</insert>
+	
+	<select id = "queryVisitorByNameAndPassword" resultType="Visitor">
+		SELECT
+			*
+		FROM
+			visitors
+		WHERE
+			name=#{name}
+		AND
+			password=#{password}
+	</select>
+	
+	<select id = "queryVisitorByPhone" resultType="Visitor">
+		SELECT
+			*
+		FROM
+			visitors
+		WHERE
+			phone=#{phone}
+	</select>
+	
+	<update id = "updateVisitorByPhone" parameterType="Visitor">
+		UPDATE
+			visitors
+		SET
+			name=#{name},
+			password=#{password}
+		WHERE
+			id=#{id}
+	</update>
+</mapper>

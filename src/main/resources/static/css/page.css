@@ -1,0 +1,235 @@
+@charset "UTF-8";
+*{
+	padding:0;
+	margin:0;
+}
+#div_top{
+	height:120px;
+	max-width:1600px;
+	min-width:1000px;
+	background:lightgray;
+	margin:auto;
+}
+#div_top #table_title{
+	margin:auto;
+	width:80%;
+	text-align: center;
+	height:120px;
+	font-weight: bold;
+	color:gray;
+	font-size: 22px;
+}
+
+#cycle{
+	border:1px solid darkgray;
+	height:110px;
+	width:110px;
+	vertical-align:middle;
+	border-radius: 50%;
+	margin:auto;
+	background:darkgray;
+	color:white;
+}
+#cycle a{
+	text-decoration: none;
+	line-height: 100px;
+	display: block;
+}
+#cycle #logout{
+	text-decoration: none;
+	line-height: 100px;
+	display: block;
+	margin-top:-30px;
+}
+#cycle a:link{
+	color:white;
+}
+#cycle a:visited{
+	color:white;
+}
+#cycle a:hover{
+	color:lightblue;
+}
+
+#div_main{
+	max-width:1400px;
+	min-width:800px;
+	margin:auto;
+	padding-bottom:100px;
+}
+#div_left{
+	width:30%;
+	height:1000px;
+	float:left;
+}
+#div_left table{
+	margin-left:120px;
+	margin-top:50px;
+	width:200px;
+	position: fixed;
+	text-align: center;
+}
+#div_left table tr td{
+	height:80px;
+	font-size:20px;
+	border:1px solid darkgreen;
+	border-radius: 10px;
+}
+#div_right{
+	width:70%;
+	height:1200px;
+	margin-left:30%;
+}
+#div_bottom{
+	height:120px;
+	max-width:1600px;
+	min-width:1000px;
+	background:lightgray;
+	margin:auto;
+}
+#div_right div{
+	margin-top:3%;
+}
+#div_right #div_info{
+	height:30%;
+	font-size: 22px;
+	border:1px solid darkgreen;
+	border-radius: 10px;
+}
+#div_right #div_info p{
+	padding-top:20px;
+}
+#div_right #div_info #div_info_detail{
+	float:right;
+}
+#div_right #div_info #div_info_detail a{
+	text-decoration: none;
+}
+#div_right #div_recruitment{
+	height:30%;
+	border:1px solid darkgreen;
+	border-radius: 10px;
+}
+#div_right #div_news{
+	height:30%;
+	border:1px solid darkgreen;
+	border-radius: 10px;
+}
+#div_right #div_news #div_news1{
+	width:50%;
+	height:100%;
+	float:left;
+	border-right:1px solid black;
+	margin-top:0px;
+}
+#div_right #div_news #div_news2{
+	width:50%;
+	height:100%;
+	margin-left:50%;
+	margin-top:0px;
+}
+#div_right #div_inform{
+	height:30%;
+	border:1px solid darkgreen;
+	border-radius: 10px;
+}
+#div_right #div_resume{
+	height:30%;
+	border:1px solid darkgreen;
+	border-radius: 10px;
+}
+#save{
+	width:100%;
+	height:100%;
+	
+}
+#reload{
+	width:100%;
+	height:100%;
+}
+#div_myresume{
+	margin-left:70px;
+	padding-top:30px;
+}
+#resume{
+	margin-left:70px;
+	padding-top:100px;
+}
+#resume table tr td{
+	font-size: 30px;
+	height:50px;
+	width:200px;
+	text-align: center;
+}	
+.input{
+	width:100%;
+	height:100%;
+}
+#ul_add,#ul_delete,#ul_update,#ul_query{
+		display:none;
+	}
+#ul_add,#ul_delete,#ul_update,#ul_query{
+	list-style-type: none;
+}	
+#td_add:hover #ul_add{
+		display:block;
+		position: absolute;
+		left:216px;
+	} 
+#td_delete:hover #ul_delete{
+		display:block;
+		position: absolute;
+		left:470px;
+	} 
+#td_update:hover #ul_update{
+		display:block;
+		position: absolute;
+		left:976px;
+	} 
+#td_query:hover #ul_query{
+		display:block;
+		position: absolute;
+		left:1220px;
+	} 
+#div_left_td_add:hover #ul_add{
+		display:block;
+		position: absolute;
+	} 
+#div_left_td_delete:hover #ul_delete{
+		display:block;
+		position: absolute;
+	} 
+#div_left_td_update:hover #ul_update{
+		display:block;
+		position: absolute;
+	} 
+#div_left_td_query:hover #ul_query{
+		display:block;
+		position: absolute;
+	} 
+#addDepartment{
+	margin-left:250px;
+	padding-top:130px;
+	font-size: 20px;
+}
+#addDepartment table tr td{
+	width:50px;
+	height:50px;
+}
+#addDepartment input{
+	width:200px;
+	height:30px;
+}
+#addDepartment_apply{
+	float:right;
+	font-size:20px;
+}
+#addRecruitment{
+	margin-left:250px;
+	padding-top:130px;
+	font-size: 20px;
+}
+#addRecruitment table tr td{
+	width:50px;
+	height:50px;
+}

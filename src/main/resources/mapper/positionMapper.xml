@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iotek.HRSystem.dao.PostionDao">
+	
+	<insert id = "insertPosition" parameterType="Position">
+		INSERT INTO 
+			positions(name,department_id)
+		VALUES
+			(#{name},#{department.id})
+	</insert>
+	
+	<delete id = "deletePosition" parameterType="int">
+		DELETE FROM 
+			positions
+		WHERE
+			id = #{id}
+	</delete>
+	
+	<update id = "updatePosition" parameterType="Position">
+		UPDATE
+			positions
+		SET
+			name=#{name}
+			department_id=#{department.id}
+		WHERE
+			id=#{id}
+	</update>
+	
+	<select id="queryAllPositions" resultType="Position">
+		SELECT 
+			*
+		FROM
+			positions
+	</select>
+	
+	<select id = "queryPositionsByDepartment" resultType="Position">
+		SELECT 
+			p.id id,
+			p.name name,
+			d.id "department.id",
+			d.name "department.name"
+		FROM
+			positions p,departments d
+		WHERE
+			p.departments_id = d.id
+		AND
+			p.departments_id=#{department.id}
+	</select>
+	
+	
+</mapper>
