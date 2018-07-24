@@ -11,8 +11,20 @@
 	<script type="text/javascript">
 	var ctx = "${ctx}";
 	$(function(){
-	windowInit();
-	}
+		windowInit();
+	});
+	$.ajax({
+		url:"departmentList",
+		type:"post",
+		dataType:"json",
+		success:function(data){
+			$.each(data,function(idx,item){
+				$("select").append(
+						"<option value="+item.id+">"+item.name+"</option>"
+					)	
+			})				
+		}
+	})
 	function windowInit(){
 	        
 	        var today = new Date();
@@ -119,7 +131,7 @@
 		</table>
 	</div>
 	<div id = "div_main">
-		<div id = "div_left">
+			<div id = "div_left">
 			<div id = "admin_inform"></div>
 			<table id="calendar" border="0" cellspacing="0" cellpadding="0">
                 <tr>
@@ -192,31 +204,21 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addRecruitmentInput" id = "addRecruitment">
+				<form action = "addPositionInput" id = "addPosition" >
 					<table>
 						<tr>
-							<td>选择部门：<select name = "chooseDepartment" id = "chooseDepartment">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.departments}" var="departments">
-								<option value = "${departments.id}">${departments.name}</option>
-								</c:forEach>
-								</select>
+							<td>请选择部门：<select name="department"></select></td>
+						</tr>
+						<tr>
+							<td>新增职位名称：<input type = "text" name = "name" id = "name" required="required"></td>
+						</tr>
+						<tr>
+							<td>职位权限：<input type = "radio" name = "power" checked value = "1">普通员工
+							<input type = "radio" name = "power" value = "2">部门经理
 							</td>
-							<td>
-								选择职位：<select name = "choosePosition" id = "choosePosition">
-							</select></td>
 						</tr>
-						<tr>
-							<td>职位介绍：<input type = "text" name = "recruitment_detail" disabled="disabled"></td>
-						</tr>
-						<tr>
-							<td>职位要求<input type = "text" name = "recruitment_require" disabled="disabled"></td>
-						</tr>
-						<tr>
-							<td>薪资：<input type = "number" name = "salary" id = "salary"></td>
-						</tr>
-						<tr>
-							<td><button id = "addRecrumentButton">新增</button></td><td><button id = "addRecruitment_apply">提交</button></td>
+						<tr>	
+							<td><button id = "addDepartment_apply">提交</button></td>
 						</tr>
 					</table>
 				</form>

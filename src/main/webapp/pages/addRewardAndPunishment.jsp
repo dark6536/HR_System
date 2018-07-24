@@ -11,8 +11,8 @@
 	<script type="text/javascript">
 	var ctx = "${ctx}";
 	$(function(){
-	windowInit();
-	}
+		windowInit();
+	});
 	function windowInit(){
 	        
 	        var today = new Date();
@@ -119,7 +119,7 @@
 		</table>
 	</div>
 	<div id = "div_main">
-		<div id = "div_left">
+			<div id = "div_left">
 			<div id = "admin_inform"></div>
 			<table id="calendar" border="0" cellspacing="0" cellpadding="0">
                 <tr>
@@ -192,31 +192,38 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addRecruitmentInput" id = "addRecruitment">
-					<table>
+				<form action = "addRewardAndPunishmentInput" id = "addRewardAndPunishment" >
+					<table border="1px" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>选择部门：<select name = "chooseDepartment" id = "chooseDepartment">
+							<td colspan = "2"><input type = "radio" name = "type" id = "RewardAndPunishment" checked>奖励
+								<input type = "radio" name = "type" id = "RewardAndPunishment">惩处
+							</td>
+						</tr>
+						<tr>
+							<td colspan = "2">员工工号：<select name = "chooseEmployee">
 								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.departments}" var="departments">
-								<option value = "${departments.id}">${departments.name}</option>
+								<c:forEach items="${sessionScope.employees}" var="employees">
+								<option value = "${employees.id}">${employees.name}</option>
 								</c:forEach>
 								</select>
 							</td>
-							<td>
-								选择职位：<select name = "choosePosition" id = "choosePosition">
-							</select></td>
 						</tr>
 						<tr>
-							<td>职位介绍：<input type = "text" name = "recruitment_detail" disabled="disabled"></td>
+							<td colspan = "2">
+								员工姓名：<input type = "text" name = "employee_name" readonly="readonly" value = "" id = "input_employee_name">
+							</td>
 						</tr>
 						<tr>
-							<td>职位要求<input type = "text" name = "recruitment_require" disabled="disabled"></td>
+							<td colspan = "2">标题：<input type = "text" name = "title" class = "input"></td>
 						</tr>
 						<tr>
-							<td>薪资：<input type = "number" name = "salary" id = "salary"></td>
+							<td colspan = "2">详情：<input type = "text" name = "datail" class = "input"></td>
 						</tr>
 						<tr>
-							<td><button id = "addRecrumentButton">新增</button></td><td><button id = "addRecruitment_apply">提交</button></td>
+							<td colspan = "2">措施：<input type = "number" name = "measure" class = "input"></td>
+						</tr>
+						<tr>	
+							<td colspan = "2"><button id = "addRewardAndPunishment_apply">提交</button></td>
 						</tr>
 					</table>
 				</form>

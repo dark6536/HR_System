@@ -11,8 +11,8 @@
 	<script type="text/javascript">
 	var ctx = "${ctx}";
 	$(function(){
-	windowInit();
-	}
+		windowInit();
+	});
 	function windowInit(){
 	        
 	        var today = new Date();
@@ -119,7 +119,7 @@
 		</table>
 	</div>
 	<div id = "div_main">
-		<div id = "div_left">
+			<div id = "div_left">
 			<div id = "admin_inform"></div>
 			<table id="calendar" border="0" cellspacing="0" cellpadding="0">
                 <tr>
@@ -192,31 +192,39 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addRecruitmentInput" id = "addRecruitment">
-					<table>
+				<form action = "addTrainInput" id = "addTrain" >
+					<table border="1px" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>选择部门：<select name = "chooseDepartment" id = "chooseDepartment">
+							<td>培训名称：<input type = "text" name = "name" required="required" id = "name"></td>
+						</tr>
+						<tr>
+							<td>培训导师：<input type = "text" name = "teacher" required="required" id = "teacher"></td>
+						</tr>
+						<tr>	
+							<td>培训时间：<input type = "date" name = "time" required="required" id = "time"></td>
+						</tr>
+						<tr>
+							<td>参加部门<select name = "chooseDepartment">
 								<option value = "0">请选择</option>
 								<c:forEach items="${sessionScope.departments}" var="departments">
 								<option value = "${departments.id}">${departments.name}</option>
 								</c:forEach>
 								</select>
+								<textarea></textarea>
 							</td>
-							<td>
-								选择职位：<select name = "choosePosition" id = "choosePosition">
-							</select></td>
 						</tr>
 						<tr>
-							<td>职位介绍：<input type = "text" name = "recruitment_detail" disabled="disabled"></td>
+							<td>参加个人<select name = "chooseEmployee">
+								<option value = "0">请选择</option>
+								<c:forEach items="${sessionScope.employees}" var="employees">
+								<option value = "${employees.id}">${employees.name}</option>
+								</c:forEach>
+								</select>
+								<textarea></textarea>
+							</td>
 						</tr>
-						<tr>
-							<td>职位要求<input type = "text" name = "recruitment_require" disabled="disabled"></td>
-						</tr>
-						<tr>
-							<td>薪资：<input type = "number" name = "salary" id = "salary"></td>
-						</tr>
-						<tr>
-							<td><button id = "addRecrumentButton">新增</button></td><td><button id = "addRecruitment_apply">提交</button></td>
+						<tr>	
+							<td><button id = "addTrain_apply">提交</button></td>
 						</tr>
 					</table>
 				</form>

@@ -49,7 +49,7 @@
 					<a>新建简历</a>
 				</c:if>
 			</div>
-			<form action = "visitor/resumeInput" method="post" id = "resume">
+			<form action = "resumeInput" method="post" id = "resume">
 				<h1>创建简历</h1>
 				<br><br>
 				<table border="1px">

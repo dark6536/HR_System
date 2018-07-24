@@ -11,8 +11,8 @@
 	<script type="text/javascript">
 	var ctx = "${ctx}";
 	$(function(){
-	windowInit();
-	}
+		windowInit();
+	});
 	function windowInit(){
 	        
 	        var today = new Date();
@@ -119,7 +119,7 @@
 		</table>
 	</div>
 	<div id = "div_main">
-		<div id = "div_left">
+			<div id = "div_left">
 			<div id = "admin_inform"></div>
 			<table id="calendar" border="0" cellspacing="0" cellpadding="0">
                 <tr>
@@ -192,35 +192,31 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addRecruitmentInput" id = "addRecruitment">
-					<table>
-						<tr>
-							<td>选择部门：<select name = "chooseDepartment" id = "chooseDepartment">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.departments}" var="departments">
-								<option value = "${departments.id}">${departments.name}</option>
-								</c:forEach>
-								</select>
-							</td>
-							<td>
-								选择职位：<select name = "choosePosition" id = "choosePosition">
-							</select></td>
-						</tr>
-						<tr>
-							<td>职位介绍：<input type = "text" name = "recruitment_detail" disabled="disabled"></td>
-						</tr>
-						<tr>
-							<td>职位要求<input type = "text" name = "recruitment_require" disabled="disabled"></td>
-						</tr>
-						<tr>
-							<td>薪资：<input type = "number" name = "salary" id = "salary"></td>
-						</tr>
-						<tr>
-							<td><button id = "addRecrumentButton">新增</button></td><td><button id = "addRecruitment_apply">提交</button></td>
-						</tr>
-					</table>
-				</form>
-			</div>
+			<table border="1px" cellpadding="0" cellspacing="0" id = "table_queryDepartment">
+				<tr>
+					<td>ID</td>
+					<td>DEPARTMENT_NAME</td>
+					<td>CREATETIME</td>
+					<td>JOB_NUMBER</td>
+					<td>MANAGER_NAME</td>
+					<td>EDIT</td>
+					<td>DELETE</td>
+					<td>DETAIL</td>
+				</tr>
+				<c:forEach items="${sessionScope.departments}" var="departments">
+				<tr>
+					<td>${departments.id}</td>
+					<td>${departments.name}</td>
+					<td>${departments.createTime}</td>
+					<td>${departments.job_number}</td>
+					<td>${departments.manager_name}</td>
+					<td><a href = "updateDepartment?id="${departments.id}">EDIT</a></td>
+					<td><a href = "deleteDepartment?id="${departments.id}">DELETE</a></td>
+					<td><a href = "queryDetailByDepartment?id="${departments.id}">DETAIL</a></td>
+				</tr>
+				</c:forEach>	
+			</table>
+		</div>
 	</div>
 	<div id = "div_bottom">
 		

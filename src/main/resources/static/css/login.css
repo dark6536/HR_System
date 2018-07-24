@@ -7,7 +7,9 @@ body,html{
 	height:100%;
 	width:100%;
 }
-
+body{
+	background-image:url(../images/lake.png);
+}
 #div_top{
 	height:120px;
 	max-width:1600px;
@@ -203,13 +205,13 @@ body,html{
 #td_add:hover #ul_add{
 		display:block;
 		position: absolute;
-		left:300px;
+		left:290px;
 	} 
 
 #td_query:hover #ul_query{
 		display:block;
 		position: absolute;
-		left:1130px;
+		left:1090px;
 	} 
 #div_left_td_add:hover #ul_add{
 		display:block;
@@ -237,107 +239,14 @@ body,html{
 }
 #addDepartment_apply{
 	float:right;
-	font-size:25px;
+	font-size:20px;
 }
 #addRecruitment{
 	margin-left:250px;
 	padding-top:130px;
-	font-size: 25px;
+	font-size: 20px;
 }
 #addRecruitment table tr td{
-	width:200px;
+	width:50px;
 	height:50px;
-}
-#addRecrumentButton,#addRecruitment_apply{
-	font-size:25px;
-}
-#addPosition{
-	padding-top:100px;
-	margin-left:200px;
-	font-size: 24px;
-}
-#addPosition table tr td{
-	height:50px;
-}
-#addPosition input{
-	font-size: 24px;
-}
-#addPosition select{
-	font-size: 24px;
-}
-#addEmployee{
-	padding-top:100px;
-	margin-left:50px;
-	font-size: 24px;
-}
-#addEmployee table{
-	height:30%;
-	text-align: center;
-	border-radius: 10px;
-}
-#addEmployee table tr td{
-	height:40px;
-	padding:10px;
-}
-#addEmployee_apply{
-	font-size: 25px;
-}
-#addEmployee select{
-	font-size: 25px;
-}
-#addTrain{
-	padding-top:100px;
-	margin-left:150px;
-	font-size: 24px;
-}
-#addTrain table{
-	height:30%;
-	text-align: center;
-	border-radius: 10px;
-}
-#addTrain table tr td{
-	height:40px;
-	padding:10px;
-}
-#addTrain_apply{
-	font-size: 25px;
-}
-#addTrain select{
-	font-size: 25px;
-}
-#addTrain textarea{
-	height:100px;
-}
-#addRewardAndPunishment{
-	padding-top:100px;
-	margin-left:150px;
-	font-size: 24px;
-}
-#addRewardAndPunishment .input{
-	height:30px;
-	width:300px;
-}
-#addRewardAndPunishment table{
-	height:30%;
-	text-align: center;
-	border-radius: 10px;
-	width:500px;
-}
-#addRewardAndPunishment table tr td{
-	height:40px;
-	padding:10px;
-}
-#addRewardAndPunishment_apply{
-	font-size: 25px;
-}
-#addRewardAndPunishment select{
-	font-size: 25px;
-}
-#input_employee_name{
-	height:30px;
-	width:100px;
-}
-#table_queryDepartment{
-	text-align: center;
-	width:600px;
 }

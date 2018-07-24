@@ -11,8 +11,8 @@
 	<script type="text/javascript">
 	var ctx = "${ctx}";
 	$(function(){
-	windowInit();
-	}
+		windowInit();
+	});
 	function windowInit(){
 	        
 	        var today = new Date();
@@ -119,7 +119,7 @@
 		</table>
 	</div>
 	<div id = "div_main">
-		<div id = "div_left">
+			<div id = "div_left">
 			<div id = "admin_inform"></div>
 			<table id="calendar" border="0" cellspacing="0" cellpadding="0">
                 <tr>
@@ -192,10 +192,59 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addRecruitmentInput" id = "addRecruitment">
-					<table>
+				<form action = "addEmployeeInput" id = "addEmployee" >
+					<table border="1px" cellpadding="0" cellspacing="0">
 						<tr>
-							<td>选择部门：<select name = "chooseDepartment" id = "chooseDepartment">
+						<td>姓名：</td>
+						<td><input type = "text" name = "name" required="required" class = "input"></td>
+						<td>性别：</td>
+						<td><input type = "radio" name = "gender" value = "男" checked>男
+							<input type = "radio" name = "gender" value = "女">女
+						</td>
+					</tr>
+					<tr>
+						<td>年龄：</td>
+						<td><input type = "number" name = "age" required="required" class = "input"></td>
+						<td>生日：</td>
+						<td><input type = "date" name = "birthday" required="required" class = "input"></td>
+					</tr>
+					<tr>
+						<td>学历：</td>
+						<td><select name = "education_background" class = "input">
+							<option value = "1">大学本科</option>
+							<option value = "2">硕士</option>
+							<option value = "3">博士</option>
+							<option value = "4">大专</option>
+							<option value = "5">中专</option>
+						</select></td>
+						<td>毕业院校：</td>
+						<td><input type = "text" name = "graduate_school" required ="required" class = "input"></td>
+					</tr>
+					<tr>
+						<td>专业:</td>
+						<td><input type = "text" name = "major" required="required" class = "input"></td>
+						<td>毕业时间</td>
+						<td><input type = "date" name = "graduate_time" required="requeired" class = "input"></td>
+					</tr>
+					<tr>
+						<td>手机：</td>
+						<td><input type = "number" name = "phone" required= "required" class = "input"></td>
+						<td>邮箱</td>
+						<td><input type = "email" name = "email" required= "required" class = "input"></td>
+					</tr>
+					<tr>
+						<td>政治面貌：</td>
+						<td><select name = "politics_status" class = "input">
+							<option value = "1">群众</option>
+							<option value = "2">党员</option>
+							<option value = "3">团员</option>
+							<option value = "4">其它党派</option>
+						</select></td>
+						<td>所在城市：</td>
+						<td><input type = "text" name = "city" required="required" class = "input"></td>
+						</tr>
+						<tr>
+							<td>选择部门：</td><td><select name = "chooseDepartment">
 								<option value = "0">请选择</option>
 								<c:forEach items="${sessionScope.departments}" var="departments">
 								<option value = "${departments.id}">${departments.name}</option>
@@ -203,20 +252,15 @@
 								</select>
 							</td>
 							<td>
-								选择职位：<select name = "choosePosition" id = "choosePosition">
+								选择职位：</td><td><select name = "choosePosition">
+								<option>请选择</option>
+								<c:forEach items="${sessionScope.positions}" var="positions">
+								<option value = "${positions.id}">${positions.name}</option>
+								</c:forEach>
 							</select></td>
 						</tr>
-						<tr>
-							<td>职位介绍：<input type = "text" name = "recruitment_detail" disabled="disabled"></td>
-						</tr>
-						<tr>
-							<td>职位要求<input type = "text" name = "recruitment_require" disabled="disabled"></td>
-						</tr>
-						<tr>
-							<td>薪资：<input type = "number" name = "salary" id = "salary"></td>
-						</tr>
-						<tr>
-							<td><button id = "addRecrumentButton">新增</button></td><td><button id = "addRecruitment_apply">提交</button></td>
+						<tr>	
+							<td colspan="4"><button id = "addEmployee_apply">提交</button></td>
 						</tr>
 					</table>
 				</form>

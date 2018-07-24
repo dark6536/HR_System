@@ -8,6 +8,7 @@
 	<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/font-awesome/css/font-awesome.css" rel="stylesheet"> 
     <link href="${pageContext.request.contextPath}/css/sb-admin.css" rel="stylesheet">
+    <link rel = "stylesheet" href= "${pageContext.request.contextPath}/css/login.css">
 
 </head>
 <body>

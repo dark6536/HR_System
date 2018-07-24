@@ -8,6 +8,7 @@
 	<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/font-awesome/css/font-awesome.css" rel="stylesheet"> 
     <link href="${pageContext.request.contextPath}/css/sb-admin.css" rel="stylesheet">
+    <link rel = "stylesheet" href= "${pageContext.request.contextPath}/css/login.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.7.2.js"></script>
     <script type="text/javascript">
     	$(function(){
@@ -23,6 +24,7 @@
     </script>
 </head>
 <body>
+	<div id = "bg"></div>
 	<div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">

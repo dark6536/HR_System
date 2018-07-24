@@ -24,7 +24,7 @@
 	</div>
 	<div id = "div_main">
 		<div id = "div_left">
-			<table >
+			<table id = "table_index">
 				<tr>
 					<td><a>公司简介</a></td>
 				</tr>

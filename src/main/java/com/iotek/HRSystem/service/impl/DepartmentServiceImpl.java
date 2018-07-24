@@ -30,8 +30,13 @@ public class DepartmentServiceImpl implements DepartmentService{
 	}
 
 	@Override
-	public List<Department> queryAllDepartements() {
-		return departmentDao.queryAllDepartements();
+	public List<Department> queryAllDepartments() {
+		return departmentDao.queryAllDepartments();
+	}
+
+	@Override
+	public List<Department> queryAllDepartmentsExceptDimission() {
+		return departmentDao.queryAllDepartmentsExceptDimission();
 	}
 	
 	

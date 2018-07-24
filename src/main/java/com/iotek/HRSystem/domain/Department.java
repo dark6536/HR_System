@@ -6,25 +6,20 @@ public class Department {
 	private int id;
 	private String name;
 	private Date createTime;
-	private int manager_id;
+	private long job_number;
 	private String manager_name;
 
 	public Department() {
 		super();
 	}
-
-	
-
-	public Department(int id, String name, Date createTime, int manager_id, String manager_name) {
+	public Department(int id, String name, Date createTime, long job_number, String manager_name) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.createTime = createTime;
-		this.manager_id = manager_id;
+		this.job_number = job_number;
 		this.manager_name = manager_name;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -50,6 +45,14 @@ public class Department {
 		this.createTime = createTime;
 	}
 
+	public long getJob_number() {
+		return job_number;
+	}
+
+	public void setJob_number(long job_number) {
+		this.job_number = job_number;
+	}
+
 	public String getManager_name() {
 		return manager_name;
 	}
@@ -58,26 +61,11 @@ public class Department {
 		this.manager_name = manager_name;
 	}
 
-	public int getManager_id() {
-		return manager_id;
-	}
-
-
-
-	public void setManager_id(int manager_id) {
-		this.manager_id = manager_id;
-	}
-
-
-
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", name=" + name + ", createTime=" + createTime + ", manager_id=" + manager_id
+		return "Department [id=" + id + ", name=" + name + ", createTime=" + createTime + ", job_number=" + job_number
 				+ ", manager_name=" + manager_name + "]";
 	}
 
-
-
 	
-
 }

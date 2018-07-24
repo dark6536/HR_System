@@ -8,5 +8,6 @@ public interface DepartmentService {
 	public void insertDepartment(Department department);
 	public void deleteDepartment(Integer id);
 	public void updateDepartment(Department department);
-	public List<Department> queryAllDepartements();
+	public List<Department> queryAllDepartments();
+	public List<Department> queryAllDepartmentsExceptDimission();
 }
