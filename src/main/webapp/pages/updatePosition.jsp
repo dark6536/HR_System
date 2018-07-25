@@ -192,39 +192,34 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addTrainInput" id = "addTrain" >
-					<table border="1px" cellpadding="0" cellspacing="0">
+				<form action = "updatePositionInput" id = "updatePosition" >
+					<table>
 						<tr>
-							<td>培训名称：<input type = "text" name = "name" required="required" id = "name"></td>
-						</tr>
-						<tr>
-							<td>培训导师：<input type = "text" name = "teacher" required="required" id = "teacher"></td>
-						</tr>
-						<tr>	
-							<td>培训时间：<input type = "date" name = "time" required="required" id = "time"></td>
-						</tr>
-						<tr>
-							<td>参加部门<select name = "chooseDepartment">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.departments}" var="departments">
+							<td>请选择部门：<select name="department">
+							<option value = "${sessionScope.position.department.id}">${sessionScope.position.department.name}</option>
+							<c:forEach items="${sessionScope.departments}" var="departments">
 								<option value = "${departments.id}">${departments.name}</option>
-								</c:forEach>
-								</select>
-								<textarea></textarea>
-							</td>
+							</c:forEach>
+							</select></td>
 						</tr>
 						<tr>
-							<td>参加个人<select name = "chooseEmployee">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.employees}" var="employees">
-								<option value = "${employees.id}">${employees.name}</option>
-								</c:forEach>
-								</select>
-								<textarea></textarea>
+							<td>新增职位名称：<input type = "text" name = "name" id = "name" required="required" value = "${sessionScope.position.name}"></td>
+						</tr>
+						<tr>
+							<td>职位权限：<input type = "radio" name = "power" 
+								<c:if test="#{sessionScope.position.powerType==1}">
+									checked="checked"
+								</c:if>
+							>普通员工
+							<input type = "radio" name = "power" 
+							<c:if test="#{sessionScope.position.powerType==2}">
+									checked="checked"
+								</c:if>
+							>部门经理
 							</td>
 						</tr>
 						<tr>	
-							<td><button id = "addTrain_apply">提交</button></td>
+							<td><button id = "addDepartment_apply">提交</button></td>
 						</tr>
 					</table>
 				</form>

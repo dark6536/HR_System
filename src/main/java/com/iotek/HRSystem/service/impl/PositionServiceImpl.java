@@ -20,5 +20,21 @@ public class PositionServiceImpl implements PositionService{
 	public List<Position> queryPositionsByDepartment(Integer id) {
 		return positionDao.queryPositionsByDepartment(id);
 	}
+	@Override
+	public List<Position> queryAllPositions() {
+		return positionDao.queryAllPositions();
+	}
+	@Override
+	public void deletePosition(Integer id) {
+		positionDao.deletePosition(id);
+	}
+	@Override
+	public void updatePosition(Position position) {
+		positionDao.updatePosition(position);
+	}
+	@Override
+	public Position queryPositionById(Integer id) {
+		return positionDao.queryPositionById(id);
+	}
 
 }

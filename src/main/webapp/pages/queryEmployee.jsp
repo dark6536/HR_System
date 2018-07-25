@@ -12,6 +12,15 @@
 	var ctx = "${ctx}";
 	$(function(){
 		windowInit();
+		$(".del").on("click",function(){
+			var name = $(this).parent().parent().children()[1].innerHTML;
+			return confirm("确定删除"+name+"吗？")
+		})
+		$(".update").on("click",function(){
+			var id = $(this).parent().parent().children()[0].innerHTML;
+			return confirm("确定修改id为"+id+"的数据吗？")
+		})		
+
 	});
 	function windowInit(){
 	        
@@ -113,7 +122,7 @@
 						<li><a href = "queryTrain">查询培训信息</a></li>
 						<li><a href = "queryRecruitment">查询招聘信息</a></li>
 						<li><a href = "queryRewardAndPunishment">查询奖惩信息</a></li>
-						<li><a href = "queryChecking-in">查询考勤信息</a></li>
+						<li><a href = "queryChecking">查询考勤信息</a></li>
 					</ul></td>
 			</tr>
 		</table>
@@ -192,43 +201,37 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addTrainInput" id = "addTrain" >
-					<table border="1px" cellpadding="0" cellspacing="0">
-						<tr>
-							<td>培训名称：<input type = "text" name = "name" required="required" id = "name"></td>
-						</tr>
-						<tr>
-							<td>培训导师：<input type = "text" name = "teacher" required="required" id = "teacher"></td>
-						</tr>
-						<tr>	
-							<td>培训时间：<input type = "date" name = "time" required="required" id = "time"></td>
-						</tr>
-						<tr>
-							<td>参加部门<select name = "chooseDepartment">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.departments}" var="departments">
-								<option value = "${departments.id}">${departments.name}</option>
-								</c:forEach>
-								</select>
-								<textarea></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td>参加个人<select name = "chooseEmployee">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.employees}" var="employees">
-								<option value = "${employees.id}">${employees.name}</option>
-								</c:forEach>
-								</select>
-								<textarea></textarea>
-							</td>
-						</tr>
-						<tr>	
-							<td><button id = "addTrain_apply">提交</button></td>
-						</tr>
-					</table>
-				</form>
-			</div>
+			<table border="1px" cellpadding="0" cellspacing="0" class = "table_query">
+				<tr>
+					<td>ID</td>
+					<td>NAME</td>
+					<td>JOB_NUMBER</td>
+					<td>POSITION</td>
+					<td>DEPARTMENT</td>
+					<td>ENTRY_TIME</td>
+					<td>EXPIRY_TIME</td>
+					<td>STATUS</td>
+					<td>EDIT</td>
+					<td>DELETE</td>
+					<td>DETAIL</td>
+				</tr>
+				<c:forEach items="${sessionScope.employees}" var="employees">
+				<tr>
+					<td>${employees.id}</td>
+					<td>${employees.name}</td>
+					<td>${employees.job_number}</td>
+					<td>${employees.position.name}</td>
+					<td>${employees.position.department.name}</td>
+					<td>${employees.entry_time}</td>
+					<td>${employees.expiry_time}</td>
+					<td>${employees.status}</td>
+					<td><a href = "updateEmployee?id=${employees.id}" class = "update">EDIT</a></td>
+					<td><a href = "deleteEmployee?id=${employees.id}" class = "del">DELETE</a></td>
+					<td><a href = "queryDetail?id=${employees.id}">DETAIL</a></td>
+				</tr>
+				</c:forEach>	
+			</table>
+		</div>
 	</div>
 	<div id = "div_bottom">
 		

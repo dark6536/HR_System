@@ -10,7 +10,18 @@
 			(#{name},#{department.id},#{powerType},#{createTime})
 	</insert>
 	
-	
+	<select id = "queryAllPositions" resultType="Position">
+		SELECT
+			p.id id,
+			p.name name,
+			d.name "department.name",
+			p.powerType,
+			p.createTime
+		FROM
+			positions p,departments d
+		WHERE
+			p.departments_id = d.id
+	</select>
 	
 	<select id = "queryPositionsByDepartment" resultType="Position">
 		SELECT 
@@ -26,5 +37,29 @@
 			p.departments_id=#{department.id}
 	</select>
 	
+	<delete id = "deletePosition" parameterType="int">
+		DELETE FROM 
+			positions
+		WHERE
+			id = #{id}
+	</delete>
 	
+	<update id = "updatePosition" parameterType="Position">
+		UPDATE
+			positions
+		SET
+			departments_id=#{department.id},
+			powerType=#{powerType}
+		WHERE
+			id=#{id}
+	</update>
+	
+	<select id = "queryPositionById" resultType="Position">
+		SELECT
+			*
+		FROM
+			positions
+		WHERE
+			id = #{id}
+	</select>
 </mapper>

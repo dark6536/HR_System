@@ -10,5 +10,6 @@ public interface DepartmentDao {
 	public void updateDepartment(Department department);
 	public List<Department> queryAllDepartments();
 	public List<Department> queryAllDepartmentsExceptDimission();
+	public Department queryDepartmentById(Integer id);
 	
 }

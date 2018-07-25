@@ -20,7 +20,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 	}
 
 	@Override
-	public void deleteDepartment(Integer id) {
+	public void deleteDepartmentById(Integer id) {
 		departmentDao.deleteDepartment(id);
 	}
 
@@ -37,6 +37,11 @@ public class DepartmentServiceImpl implements DepartmentService{
 	@Override
 	public List<Department> queryAllDepartmentsExceptDimission() {
 		return departmentDao.queryAllDepartmentsExceptDimission();
+	}
+
+	@Override
+	public Department quearyDepartmentById(Integer id) {
+		return departmentDao.queryDepartmentById(id);
 	}
 	
 	

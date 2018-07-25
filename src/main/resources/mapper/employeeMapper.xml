@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.iotek.HRSystem.dao.DepartmentDao">
+<mapper namespace="com.iotek.HRSystem.dao.EmployeeDao">
 	
-	<insert id = "insertDepartment" parameterType="Department">
+	<select id = "queryAllEmployees" resultType="Employee">
+		SELECT
+			e.id id,
+			e.name name,
+			e.job_number job_number,
+			p.name "position.name",
+			d.name "position.department.name",
+			e.entry_time entry_time,
+			e.expiry_time expiry_time,
+			e.status status
+		FROM
+			employees e,positions p,departments d
+		WHERE
+			e.positions_id = p.id
+		AND
+			p.departments_id = d.id
+	</select>
+	
+	<insert id = "insertEmployee" parameterType="Employee">
 		INSERT INTO 
-			departments(name,createTime,job_number,manager_name)
+			employees(name,job_number,job_number,manager_name)
 		VALUES
 			(#{name},#{createTime},#{job_number},#{manager_name})
 	</insert>
@@ -27,25 +45,6 @@
 		WHERE
 			id=#{id}
 	</update>
-	
-	<select id="queryAllDepartments" resultType="Department">
-		SELECT 
-			*
-		FROM
-			departments
-		WHERE
-			id > 2;
-	</select>
-	
-	<select id="queryAllDepartmentsExceptDimission" resultType="Department">
-		SELECT 
-			*
-		FROM
-			departments
-		WHERE
-			id > 1;
-	</select>
-	
 	<select id = "queryDepartmentById" resultType="Department">
 		SELECT
 			*

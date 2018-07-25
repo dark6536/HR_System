@@ -113,7 +113,7 @@
 						<li><a href = "queryTrain">查询培训信息</a></li>
 						<li><a href = "queryRecruitment">查询招聘信息</a></li>
 						<li><a href = "queryRewardAndPunishment">查询奖惩信息</a></li>
-						<li><a href = "queryChecking-in">查询考勤信息</a></li>
+						<li><a href = "queryChecking">查询考勤信息</a></li>
 					</ul></td>
 			</tr>
 		</table>
@@ -192,43 +192,37 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addTrainInput" id = "addTrain" >
-					<table border="1px" cellpadding="0" cellspacing="0">
-						<tr>
-							<td>培训名称：<input type = "text" name = "name" required="required" id = "name"></td>
-						</tr>
-						<tr>
-							<td>培训导师：<input type = "text" name = "teacher" required="required" id = "teacher"></td>
-						</tr>
-						<tr>	
-							<td>培训时间：<input type = "date" name = "time" required="required" id = "time"></td>
-						</tr>
-						<tr>
-							<td>参加部门<select name = "chooseDepartment">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.departments}" var="departments">
-								<option value = "${departments.id}">${departments.name}</option>
-								</c:forEach>
-								</select>
-								<textarea></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td>参加个人<select name = "chooseEmployee">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.employees}" var="employees">
-								<option value = "${employees.id}">${employees.name}</option>
-								</c:forEach>
-								</select>
-								<textarea></textarea>
-							</td>
-						</tr>
-						<tr>	
-							<td><button id = "addTrain_apply">提交</button></td>
-						</tr>
-					</table>
-				</form>
-			</div>
+			<table border="1px" cellpadding="0" cellspacing="0" id = "table_queryChecking">
+				<tr>
+					<td>ID</td>
+					<td>JOB_NUMBER</td>
+					<td>NAME</td>
+					<td>REALCLOCK_IN</td>
+					<td>SHOULDCLOCK_IN</td>
+					<td>REALCLOCK_OUT</td>
+					<td>SHOULDCLOCK_OUT</td>
+					<td>STATUS</td>
+					<td>EDIT</td>
+					<td>DELETE</td>
+					<td>DETAIL</td>
+				</tr>
+				<c:forEach items="${sessionScope.checkings}" var="checkings">
+				<tr>
+					<td>${checkings.id}</td>
+					<td>${checkings.employee.job_number}</td>
+					<td>${checkings.employee.name}</td>
+					<td>${checkings.realClock_in}</td>
+					<td>${checkings.shouldClock_in}</td>
+					<td>${checkings.realClock_out}</td>
+					<td>${checkings.shouldClock_out}</td>
+					<td>${checkings.status}</td>
+					<td><a href = "updateDepartment?id="${checkings.id}">EDIT</a></td>
+					<td><a href = "deleteDepartment?id="${checkings.id}">DELETE</a></td>
+					<td><a href = "queryDetailByDepartment?id="${checkings.id}">DETAIL</a></td>
+				</tr>
+				</c:forEach>	
+			</table>
+		</div>
 	</div>
 	<div id = "div_bottom">
 		

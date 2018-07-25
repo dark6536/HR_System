@@ -12,6 +12,15 @@
 	var ctx = "${ctx}";
 	$(function(){
 		windowInit();
+		$(".del").on("click",function(){
+			var name = $(this).parent().parent().children()[1].innerHTML;
+			return confirm("确定删除"+name+"吗？")
+		})
+		$(".update").on("click",function(){
+			var id = $(this).parent().parent().children()[0].innerHTML;
+			return confirm("确定修改id为"+id+"的数据吗？")
+		})		
+
 	});
 	function windowInit(){
 	        
@@ -113,7 +122,7 @@
 						<li><a href = "queryTrain">查询培训信息</a></li>
 						<li><a href = "queryRecruitment">查询招聘信息</a></li>
 						<li><a href = "queryRewardAndPunishment">查询奖惩信息</a></li>
-						<li><a href = "queryChecking-in">查询考勤信息</a></li>
+						<li><a href = "queryChecking">查询考勤信息</a></li>
 					</ul></td>
 			</tr>
 		</table>
@@ -132,13 +141,13 @@
                                         <tr>
                                             <td colspan="7" align="center" height="50">
                                                 <select id="year" onchange="showCalender();">
-                                                    <option value="2017">2017</option>
                                                     <option value="2018">2018</option>
                                                     <option value="2019">2019</option>
                                                     <option value="2020">2020</option>
                                                     <option value="2021">2021</option>
                                                     <option value="2022">2022</option>
                                                     <option value="2023">2023</option>
+                                                    <option value="2017">2024</option>
                                                 </select>&nbsp;年&nbsp;
                                                 <select id="month" onchange="showCalender();">
                                                     <option value="1">1</option>
@@ -192,43 +201,35 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addTrainInput" id = "addTrain" >
-					<table border="1px" cellpadding="0" cellspacing="0">
-						<tr>
-							<td>培训名称：<input type = "text" name = "name" required="required" id = "name"></td>
-						</tr>
-						<tr>
-							<td>培训导师：<input type = "text" name = "teacher" required="required" id = "teacher"></td>
-						</tr>
-						<tr>	
-							<td>培训时间：<input type = "date" name = "time" required="required" id = "time"></td>
-						</tr>
-						<tr>
-							<td>参加部门<select name = "chooseDepartment">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.departments}" var="departments">
-								<option value = "${departments.id}">${departments.name}</option>
-								</c:forEach>
-								</select>
-								<textarea></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td>参加个人<select name = "chooseEmployee">
-								<option value = "0">请选择</option>
-								<c:forEach items="${sessionScope.employees}" var="employees">
-								<option value = "${employees.id}">${employees.name}</option>
-								</c:forEach>
-								</select>
-								<textarea></textarea>
-							</td>
-						</tr>
-						<tr>	
-							<td><button id = "addTrain_apply">提交</button></td>
-						</tr>
-					</table>
-				</form>
-			</div>
+			<table border="1px" cellpadding="0" cellspacing="0" class = "table_query">
+				<tr>
+					<td>ID</td>
+					<td>JOB_NUMBER</td>
+					<td>NAME</td>
+					<td>TYPE</td>
+					<td>DETAIL</td>
+					<td>MEASURE</td>
+					<td>TIME</td>
+					<td>EDIT</td>
+					<td>DELETE</td>
+					<td>DETAIL</td>
+				</tr>
+				<c:forEach items="${sessionScope.rewardsAndPunishments}" var="rewardsAndPunishments">
+				<tr>
+					<td>${rewardsAndPunishments.id}</td>
+					<td>${rewardsAndPunishments.employee.job_number}</td>
+					<td>${rewardsAndPunishments.employee.name}</td>
+					<td>${rewardsAndPunishments.type}</td>
+					<td>${rewardsAndPunishments.detail}</td>
+					<td>${rewardsAndPunishments.measure}</td>
+					<td>${rewardsAndPunishments.time}</td>
+					<td><a href = "updateRewardAndPunishment?id=${rewardsAndPunishments.id}" class = "update">EDIT</a></td>
+					<td><a href = "deleteRewardAndPunishment?id=${rewardsAndPunishments.id}" class = "del">DELETE</a></td>
+					<td><a href = "queryDetail?id=${rewardsAndPunishments.id}">DETAIL</a></td>
+				</tr>
+				</c:forEach>	
+			</table>
+		</div>
 	</div>
 	<div id = "div_bottom">
 		

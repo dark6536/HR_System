@@ -108,12 +108,12 @@
 				<td id = "td_query">查看系统&nbsp;&#10148
 					<ul id = "ul_query">
 						<li><a href = "queryDepartment">查询部门信息</a></li>
-						<li>查询岗位信息</li>
-						<li>查询员工信息</li>
-						<li>查询培训信息</li>
-						<li>查询招聘信息</li>
-						<li>查询奖惩信息</li>
-						<li>查询考勤信息</li>
+						<li><a href = "queryPosition">查询岗位信息</a></li>
+						<li><a href = "queryEmployee">查询员工信息</a></li>
+						<li><a href = "queryTrain">查询培训信息</a></li>
+						<li><a href = "queryRecruitment">查询招聘信息</a></li>
+						<li><a href = "queryRewardAndPunishment">查询奖惩信息</a></li>
+						<li><a href = "queryChecking-in">查询考勤信息</a></li>
 					</ul></td>
 			</tr>
 		</table>

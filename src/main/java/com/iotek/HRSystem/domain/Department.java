@@ -8,17 +8,20 @@ public class Department {
 	private Date createTime;
 	private long job_number;
 	private String manager_name;
+	private int number;
 
 	public Department() {
 		super();
 	}
-	public Department(int id, String name, Date createTime, long job_number, String manager_name) {
+	
+	public Department(int id, String name, Date createTime, long job_number, String manager_name, int number) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.createTime = createTime;
 		this.job_number = job_number;
 		this.manager_name = manager_name;
+		this.number = number;
 	}
 
 	public int getId() {
@@ -59,6 +62,15 @@ public class Department {
 
 	public void setManager_name(String manager_name) {
 		this.manager_name = manager_name;
+	}
+	
+	
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 	@Override

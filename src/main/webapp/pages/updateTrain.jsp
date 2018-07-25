@@ -192,16 +192,16 @@
             </table>
 		</div>
 		<div id = "div_right">
-				<form action = "addTrainInput" id = "addTrain" >
-					<table border="1px" cellpadding="0" cellspacing="0">
+				<form action = "updateTrainInput" id = "updateTrain" >
+					<table>
 						<tr>
-							<td>培训名称：<input type = "text" name = "name" required="required" id = "name"></td>
+							<td>培训名称：<input type = "text" name = "name" required="required" id = "name" value = "${sessionScope.train.name}"></td>
 						</tr>
 						<tr>
-							<td>培训导师：<input type = "text" name = "teacher" required="required" id = "teacher"></td>
+							<td>培训导师：<input type = "text" name = "teacher" required="required" id = "teacher" value = "${sessionScope.train.teacher}"></td>
 						</tr>
 						<tr>	
-							<td>培训时间：<input type = "date" name = "time" required="required" id = "time"></td>
+							<td>培训时间：<input type = "date" name = "time" required="required" id = "time" value = "${sessionScope.train.time}"></td>
 						</tr>
 						<tr>
 							<td>参加部门<select name = "chooseDepartment">
